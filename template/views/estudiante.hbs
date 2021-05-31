@@ -1,0 +1,39 @@
+{{>header}}
+<br>
+{{{mostrar}}}
+<br>
+{{!-- <form action="/estudiante" method="post">
+   <div class="row">
+      <div class="col-2">
+         <label for="cedula">Cedula del Estudiante:</label>
+         <input type="text" class="form-control" name="cedulaEst" placeholder="Ingresar cedula" aria-label="cedula">
+      </div>
+   </div>
+   <br>
+   {{{listarMisCursos cedulaEst}}}
+</form> --}}
+
+<div class="table-responsive">
+   <table class="table table-hover">
+      <thead class="table-dark">
+         <th>CURSO</th>
+         <th>DESCRIPCION</th>
+         <th>VALOR</th>
+         <th>MODALIDAD</th>
+      </thead>
+      <tbody>
+
+         {{#each cursos}}
+            <tr>
+               <td>{{this.nombre}}</td>
+               <td>{{this.descripcion}}</td>
+               <td>{{this.costo}}</td>
+               <td>{{this.modalidad}}</td>
+            </tr>
+         {{/each}}
+
+      </tbody>
+   </table>
+</div>
+
+{{>footer}}

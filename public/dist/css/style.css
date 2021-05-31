@@ -1,0 +1,38 @@
+body {
+    font-family: monospace;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.nav-link{
+    border: solid 2px;
+    background-color: #076633;
+    color: white !important;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.nav-link:hover{
+    border: solid 2px;
+    background-color: #05a550;
+    color:black !important;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+.active{
+    border: solid 2px;
+    background-color: #05a550;
+    color:black !important;
+    border-radius: 5px;
+    margin: 10px;
+    font-weight: bolder;
+}
+
+footer {
+    position: relative;
+}

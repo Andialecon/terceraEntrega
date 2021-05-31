@@ -1,0 +1,88 @@
+{{>header}}
+<h1 style="display: inline-block; margin:auto">ADMINISTRAR CURSOS</h1>
+
+&nbsp; <a href="/cordinador" class="btn btn-outline-success"><i class="fas fa-sync-alt"></i></a>
+<br><br>
+{{{mostrar}}}
+<form action="/eliminarEstudiante" method="POST">
+  {{{respuesta}}}
+</form>
+
+
+<form action="/interruptor" method="post">
+  {{{listarCursos todosLosCursos}}}
+  <!-- Button trigger modal -->
+  <div class=" d-flex justify-content-center">
+    <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModal">Crar un
+      Curso</button>
+    <br><br>
+  </div>
+  <br>
+</form>
+<br>
+
+{{>footer}}
+
+<span id='mostrar'></span>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Nuevo Curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="/cordinador" method="post">
+          <input type="text" name="nombre" placeholder="Nombre del Curso" required><br><br>
+          <input type="number" name="id" placeholder="ID" required><br><br>
+          <input type="text" name="descripcion" size="50" placeholder="Descripción" required><br><br>
+          <select name="modalidad" id="modalidad">
+            <option value="presencial">Presencial</option>
+            <option value="virtual">Virtual</option>
+          </select>
+          <br><br>
+          <input type="text" name="valor" placeholder="Costo" required><br><br>
+          <button>Crear</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">salir</button>
+        {{!-- <button type="submit" class="btn btn-primary">crear</button> --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="eliminarC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar un Curso</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <form action="/eliminar" method="post">
+          <p>Elije el curso que deseas borrar</p>
+          <select name="idEliminar" id="idEliminar">
+            {{{nomCurso}}}
+          </select>
+          <button>Eliminar</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">salir</button>
+        {{!-- <button type="submit" class="btn btn-primary">crear</button> --}}
+      </div>
+    </div>
+  </div>
+</div>

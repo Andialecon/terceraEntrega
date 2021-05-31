@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="dist/css/bootstrap.css">
+
+    {{!-- CSS --}}
+    <link rel="stylesheet" href="dist/css/style.css">
+
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i class="far fa-user"></i></a>
+                <div class="collapse navbar-collapse align items center" id="navbarNavDarkDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                {{cuenta}}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/inicio">Interesado</a></li>
+                                {{!-- <li><a class="dropdown-item" href="/estudiante">Estudiante</a></li> --}}
+                                <li><a class="dropdown-item" href="/cordinador">Administrador</a></li>
+                                {{#if sesion}}
+                                    <li><a class="dropdown-item" href="/estudiante">Estudiantes</a></li>
+                                {{/if}}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                {{#if sesion}}
+                <div>
+                    <form action="/salir" method="post">
+                        <button type="submit" value="salir" class="btn btn-warning">Salir</button>
+                    </form>
+                </div>
+                {{else}}
+                <div>
+                    <form action="/" method="post">
+                        <label for="usuario">
+                            <input type="text" name="usuario" placeholder="Nombre">
+                        </label>
+                        <label for="contrasena">
+                            <input type="password" name="contrasena" placeholder="Contraseña">
+                        </label>
+                        <button type="submit">Ingresar</button>
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </nav>
+        <img class="img-fluid mx-auto d-block" src="img/logo-tdea.jpg" alt="">
+    </header>
+    <div class="container">
